@@ -1,0 +1,16 @@
+﻿@model IEnumerable<Teams>
+
+@*home page to get back to showing all bowlers*@
+<a class="btn btn-block btn-outline-secondary" asp-action="Index" asp-controller="Home" asp-route-teamid="">Home</a>
+<br />
+
+@foreach (var x in Model)
+{
+    //creating links for each team name. with the asp route we are passing out the teamId so that the bowlers and teams classes match up
+    <a class="btn btn-block @(x.TeamName == ViewBag.SelectedType ? "btn-primary" : "btn-outline-secondary")"
+       asp-action="Index" asp-controller="Home"
+       asp-route-teamid="@x.TeamId"
+       asp-route-teamname="@x.TeamName">@x.TeamName
+    </a>
+    <br />
+}
