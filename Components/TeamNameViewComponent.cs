@@ -19,7 +19,9 @@ namespace BowlingLeague.Components
 
         public IViewComponentResult Invoke()
         {
+            //this line is to help with the css styling on Default.cshtml to highlight the teamname once selected
             ViewBag.SelectedType = RouteData?.Values["teamname"];
+
             return View(context.Teams
                 .Distinct()
                 .OrderBy(x => x));
